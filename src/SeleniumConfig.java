@@ -125,15 +125,6 @@ public class SeleniumConfig {
             }
         }
 
-        //Drag and Drop
-
-        WebElement from = driver.findElement((By.id("sourceImage")));
-        WebElement to = driver.findElement((By.id("targetDiv")));
-        Actions act = new Actions(driver);
-        act
-                .dragAndDrop(from,to)
-                .build()
-                .perform();
 
         // Double click
 
@@ -142,10 +133,12 @@ public class SeleniumConfig {
         actionClick.doubleClick(doubleClick).perform();
         driver.switchTo().alert().accept();
 
+        //Drag and Drop
 
-
-
-
+        WebElement from = driver.findElement((By.id("sourceImage")));
+        WebElement to = driver.findElement((By.id("targetDiv")));
+        Actions act = new Actions(driver);
+        act.dragAndDrop(from,to).build().perform();
 
 
        // driver.close();
